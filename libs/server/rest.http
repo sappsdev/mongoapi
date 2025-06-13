@@ -1,0 +1,17 @@
+###
+# @name Create Database
+POST http://localhost:3000/dash/database HTTP/1.1
+Authorization: admin
+content-type: application/json
+{
+    "name": "test"
+}
+
+###
+# @name Create Token
+POST http://localhost:3000/dash/token HTTP/1.1
+Authorization: admin
+content-type: application/json
+{
+    "database": "684b410d33fd62d7011c1df4"
+}

@@ -1,0 +1,38 @@
+{
+  "name": "mongoapi",
+  "version": "1.0.0",
+  "description": "MongoDB API client",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./index.js"
+    }
+  },
+  "author": {
+    "name": "SappsDev",
+    "email": "info@sappsdev.com"
+  },
+  "keywords": [
+    "mongodb",
+    "api",
+    "client"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "mongodb": "^6.17.0"
+  },
+  "scripts": {
+    "build": "bun build src/index.ts --outdir dist --target node && tsc --emitDeclarationOnly --outDir dist",
+    "publish:npm": "bun run build && bun publish"
+  },
+  "peerDependencies": {
+    "typescript": "^5",
+    "mongodb": "^6.17.0"
+  }
+}
