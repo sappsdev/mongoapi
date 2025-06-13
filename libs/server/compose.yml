@@ -12,14 +12,13 @@ services:
       - redis-data:/data
 
   sappsdb:
-    image: sappsdev/sappsdb
+    image: sappsdev/mogo-api-server
     container_name: sappsdb
     ports:
       - "3000:3000"
     environment:
       - REDIS_URL=redis://redis:6379
       - MONGODB_URI=mongodb://mongodb:27017
-      - JWT_SECRET=default_jwt_secret_here
       - ADMIN_TOKEN=admin_token_here
     depends_on:
       - mongodb

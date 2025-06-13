@@ -1,4 +1,4 @@
-import { MongoApi } from "mongoapi";
+import { MongoApi } from "mongo-api-client";
 
 const clientDb = new MongoApi({
     url: 'http://localhost:3000',

@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
-    "mongoapi": "workspace:*"
+    "mongo-api-client": "workspace:*"
   },
   "devDependencies": {
     "@types/bun": "latest"

@@ -1,4 +1,3 @@
-
 # 📦 mongoapi
 
 Una librería TypeScript ligera y fácil de usar para interactuar con una API REST que actúa como proxy de MongoDB. Esta librería permite trabajar con colecciones MongoDB usando una interfaz similar al driver oficial, pero mediante HTTP.
@@ -22,29 +21,30 @@ Y aceptar un token JWT para autenticación.
 ## ⚙️ Uso básico
 
 ```ts
-import { MongoApi } from "mongoapi";
+import { MongoApi } from "mongo-api-client";
 
 const clientDb = new MongoApi({
-  url: 'http://localhost:3000', // URL de tu API Mongo REST
-  database: '684b410d33fd62d7011c1df4', // ID o nombre de la base de datos
-  token: '4cafa057-a921-4a9d-a4e8-bc0430578f2a' // Token de autenticación
+  url: "http://localhost:3000", // URL de tu API Mongo REST
+  database: "684b410d33fd62d7011c1df4", // ID o nombre de la base de datos
+  token: "4cafa057-a921-4a9d-a4e8-bc0430578f2a", // Token de autenticación
 });
 
 // Insertar un documento
 const inserted = await clientDb.collection("users").insertOne({
-  name: 'Varb',
-  email: 'varb@example.com'
+  name: "Varb",
+  email: "varb@example.com",
 });
 
 // Buscar un documento
 const user = await clientDb.collection("users").findOne({
-  _id: "684b5f08f700bd8df9465e6e"
+  _id: "684b5f08f700bd8df9465e6e",
 });
 ```
 
 ## 🧩 Métodos disponibles
 
 ### 🔍 Lectura
+
 - `find(query)`
 - `findOne(query)`
 - `countDocuments(filter)`
@@ -53,6 +53,7 @@ const user = await clientDb.collection("users").findOne({
 - `paginate(query?, page?, limit?)`
 
 ### ✏️ Escritura
+
 - `insertOne(document)`
 - `insertMany(documents)`
 - `updateOne(filter, update)`
@@ -63,10 +64,12 @@ const user = await clientDb.collection("users").findOne({
 - `findOneAndDelete(query)`
 
 ### ⚙️ Administración
+
 - `createIndex(index)`
 - `listCollections()`
 
 ### 💳 Transacciones
+
 - `transaction(operations)`
 - `transactionBulk(operations)`
 
@@ -82,7 +85,10 @@ interface User {
 
 const users = clientDb.collection<User>("users");
 
-const result = await users.insertOne({ name: "Alice", email: "alice@example.com" });
+const result = await users.insertOne({
+  name: "Alice",
+  email: "alice@example.com",
+});
 ```
 
 ## 🧪 Ejemplo completo
@@ -97,14 +103,14 @@ interface Product {
 const db = new MongoApi({
   url: "http://localhost:3000",
   database: "mydb",
-  token: "secure-token"
+  token: "secure-token",
 });
 
 const products = db.collection<Product>("products");
 
 await products.insertMany([
   { name: "Keyboard", price: 25, stock: 100 },
-  { name: "Mouse", price: 15, stock: 150 }
+  { name: "Mouse", price: 15, stock: 150 },
 ]);
 
 const cheapProducts = await products.find({ price: { $lt: 20 } });

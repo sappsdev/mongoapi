@@ -1,4 +1,4 @@
-IMAGE_NAME = mogoapi
+IMAGE_NAME = mongo-api-server
 TAG = latest
 REGISTRY = sappsdev
 

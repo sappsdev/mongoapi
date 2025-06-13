@@ -1,9 +1,10 @@
 {
-  "name": "mongoapi",
+  "name": "mongo-api-client",
   "version": "1.0.0",
   "description": "MongoDB API client",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "private": false,
   "files": [
     "./dist"
   ],
