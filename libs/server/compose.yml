@@ -12,8 +12,8 @@ services:
       - redis-data:/data
 
   sappsdb:
-    image: sappsdev/mogo-api-server
-    container_name: sappsdb
+    image: sappsdev/mongo-api-server
+    container_name: mongo-api
     ports:
       - "3000:3000"
     environment:
